@@ -6,6 +6,7 @@ import { useProgressStore } from '../store/progressStore';
 import { getMissingPrerequisites } from '../data/concepts';
 import LearningPathGraph from './LearningPathGraph';
 import CodeBlock from './CodeBlock';
+import LinkedText from './LinkedText';
 
 interface ConceptDetailProps {
   concept: Concept;
@@ -113,7 +114,22 @@ export default function ConceptDetail({ concept, onSelectConcept, onBack, onGoTo
                 {concept.explanation.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="text-gray-300 mb-4 leading-relaxed whitespace-pre-line">
                     {paragraph.split('**').map((part, i) => 
-                      i % 2 === 1 ? <strong key={i} className="text-white font-semibold">{part}</strong> : part
+                      i % 2 === 1 ? (
+                        <strong key={i} className="text-white font-semibold">
+                          <LinkedText 
+                            text={part} 
+                            currentConceptId={concept.id} 
+                            onConceptClick={onSelectConcept} 
+                          />
+                        </strong>
+                      ) : (
+                        <LinkedText 
+                          key={i}
+                          text={part} 
+                          currentConceptId={concept.id} 
+                          onConceptClick={onSelectConcept} 
+                        />
+                      )
                     )}
                   </p>
                 ))}

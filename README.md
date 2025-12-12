@@ -1,11 +1,11 @@
 # Building Blocks 🧱
 
 An interactive educational platform that visualizes learning concepts as building blocks. Learn hard concepts simply by understanding what you need to know first.
+https://buldingblocks.vercel.app/
 
 ## Features
 
 - 🎯 **Visual Learning Path**: See all prerequisite concepts before diving into complex topics
-- 🎮 **Gamification**: Earn XP, level up, and track your learning streak
 - ✨ **Smooth Animations**: Enjoy a delightful, playable experience with Framer Motion
 - 📊 **Progress Tracking**: Your progress is saved locally and persists across sessions
 - 🎨 **Beautiful UI**: Modern dark theme with gradient accents and glassmorphism effects

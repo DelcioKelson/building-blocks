@@ -19,11 +19,11 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
           >
             <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-10 h-10"
             >
-              <span className="text-xl">🧱</span>
+              <img src="/logo.svg" alt="Building Blocks" className="w-full h-full" />
             </motion.div>
             <div>
               <h1 className="text-lg font-bold text-white">Building Blocks</h1>

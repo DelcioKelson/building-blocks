@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock, BookOpen, Code } from 'lucide-react';
 import type { Concept } from '../types/concept';
 import { categoryColors } from '../types/concept';
 import { useProgressStore } from '../store/progressStore';
 import { getMissingPrerequisites } from '../data/concepts';
 import LearningPathGraph from './LearningPathGraph';
+import CodeBlock from './CodeBlock';
 
 interface ConceptDetailProps {
   concept: Concept;
@@ -118,6 +119,26 @@ export default function ConceptDetail({ concept, onSelectConcept, onBack, onGoTo
                 ))}
               </div>
             </div>
+
+            {/* Code Examples */}
+            {concept.codeExamples && concept.codeExamples.length > 0 && (
+              <div className="mb-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <Code className="w-5 h-5 text-blue-400" />
+                  <h3 className="text-lg font-semibold text-white">Code Examples</h3>
+                </div>
+                <div className="space-y-4">
+                  {concept.codeExamples.map((example, index) => (
+                    <CodeBlock
+                      key={index}
+                      code={example.code}
+                      language={example.language}
+                      title={example.title}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Learning Path Graph - Show prominently if locked */}
             {isLocked && missingPrereqs.length > 0 && (

@@ -345,9 +345,7 @@ The logarithm is the exponent!
     explanation: `Variables in programming are named containers that hold values. Think of them as labeled boxes where you can store and retrieve data.
 
 **Declaring Variables**:
-let name = "Alice";    // String (text)
-let age = 25;          // Number
-let isStudent = true;  // Boolean (true/false)
+In JavaScript, you use let or const to declare variables.
 
 **Variable Names**: Choose descriptive names! userAge is better than x.
 
@@ -367,6 +365,37 @@ let isStudent = true;  // Boolean (true/false)
       'Assignment operator',
       'Variable scope',
     ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Declaring Variables',
+        code: `// String (text)
+let name = "Alice";
+
+// Number
+let age = 25;
+
+// Boolean (true/false)
+let isStudent = true;
+
+// Const cannot be reassigned
+const PI = 3.14159;
+
+// Updating a variable
+age = 26;  // Now age is 26`
+      },
+      {
+        language: 'python',
+        title: 'Variables in Python',
+        code: `# Python doesn't need let/const
+name = "Alice"
+age = 25
+is_student = True
+
+# Multiple assignment
+x, y, z = 1, 2, 3`
+      }
+    ],
   },
   {
     id: 'conditionals',
@@ -374,10 +403,7 @@ let isStudent = true;  // Boolean (true/false)
     description: 'Making decisions in code - if this, then that.',
     explanation: `Conditionals let your program make decisions based on conditions.
 
-**Basic If Statement**:
-if (temperature > 30) {
-  console.log("It's hot!");
-}
+**Basic If Statement**: Check if a condition is true and run code.
 
 **If-Else**: Two branches for true or false.
 
@@ -397,6 +423,39 @@ if (temperature > 30) {
       'Comparison operators',
       'Boolean logic',
     ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'If-Else Statements',
+        code: `const temperature = 25;
+
+if (temperature > 30) {
+  console.log("It's hot!");
+} else if (temperature > 20) {
+  console.log("It's nice!");
+} else {
+  console.log("It's cold!");
+}
+
+// Output: "It's nice!"`
+      },
+      {
+        language: 'javascript',
+        title: 'Logical Operators',
+        code: `const age = 25;
+const hasLicense = true;
+
+// AND: both must be true
+if (age >= 18 && hasLicense) {
+  console.log("You can drive!");
+}
+
+// OR: at least one must be true
+if (age < 18 || !hasLicense) {
+  console.log("You cannot drive");
+}`
+      }
+    ],
   },
   {
     id: 'loops',
@@ -404,16 +463,11 @@ if (temperature > 30) {
     description: 'Repeating actions - doing things over and over.',
     explanation: `Loops let you repeat code without writing it multiple times.
 
-**For Loop**: When you know how many times
-for (let i = 0; i < 5; i++) {
-  console.log(i);  // Prints 0, 1, 2, 3, 4
-}
+**For Loop**: Use when you know how many times to repeat.
 
-**While Loop**: When you don't know how many times
-while (condition) { ... }
+**While Loop**: Use when you don't know how many times.
 
-**For...of Loop**: Iterating over arrays
-for (const item of array) { ... }
+**For...of Loop**: Great for iterating over arrays.
 
 **Loop Control**: break exits the loop, continue skips to next iteration.
 
@@ -429,6 +483,42 @@ for (const item of array) { ... }
       'Loop control (break, continue)',
       'Avoiding infinite loops',
     ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'For Loop',
+        code: `// Print numbers 0 to 4
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+// Output: 0, 1, 2, 3, 4
+
+// Loop through an array
+const fruits = ["apple", "banana", "cherry"];
+for (const fruit of fruits) {
+  console.log(fruit);
+}`
+      },
+      {
+        language: 'javascript',
+        title: 'While Loop',
+        code: `let count = 0;
+
+while (count < 3) {
+  console.log("Count is: " + count);
+  count++;
+}
+// Output: Count is: 0, Count is: 1, Count is: 2
+
+// Break and continue
+for (let i = 0; i < 10; i++) {
+  if (i === 3) continue;  // Skip 3
+  if (i === 7) break;     // Stop at 7
+  console.log(i);
+}
+// Output: 0, 1, 2, 4, 5, 6`
+      }
+    ],
   },
   {
     id: 'functions-prog',
@@ -436,13 +526,9 @@ for (const item of array) { ... }
     description: 'Reusable code blocks - organizing and simplifying programs.',
     explanation: `Functions are reusable blocks of code. Write once, use many times.
 
-**Defining a Function**:
-function greet(name) {
-  return "Hello, " + name + "!";
-}
+**Defining a Function**: Use the function keyword or arrow syntax.
 
-**Calling a Function**:
-const message = greet("Alice");  // "Hello, Alice!"
+**Calling a Function**: Use the function name with parentheses.
 
 **Parameters and Arguments**: Parameters are in the definition, arguments are the actual values.
 
@@ -460,6 +546,38 @@ const message = greet("Alice");  // "Hello, Alice!"
       'Return values',
       'Function scope',
     ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Function Basics',
+        code: `// Function declaration
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+// Calling the function
+const message = greet("Alice");
+console.log(message);  // "Hello, Alice!"
+
+// Arrow function (modern syntax)
+const add = (a, b) => a + b;
+console.log(add(2, 3));  // 5`
+      },
+      {
+        language: 'python',
+        title: 'Functions in Python',
+        code: `def greet(name):
+    return f"Hello, {name}!"
+
+# With default parameter
+def power(base, exponent=2):
+    return base ** exponent
+
+print(greet("Alice"))  # Hello, Alice!
+print(power(3))        # 9
+print(power(2, 4))     # 16`
+      }
+    ],
   },
   {
     id: 'arrays',
@@ -467,19 +585,11 @@ const message = greet("Alice");  // "Hello, Alice!"
     description: 'Lists of data - storing multiple values together.',
     explanation: `Arrays are ordered collections of values.
 
-**Creating Arrays**:
-const numbers = [1, 2, 3, 4, 5];
-const mixed = [1, "hello", true];
+**Creating Arrays**: Use square brackets with comma-separated values.
 
-**Accessing Elements** (zero-indexed!):
-fruits[0]  // First element
-fruits[fruits.length - 1]  // Last element
+**Accessing Elements**: Arrays are zero-indexed, meaning the first element is at index 0.
 
-**Common Methods**:
-- push(x) - Add to end
-- pop() - Remove from end
-- map(fn) - Transform each element
-- filter(fn) - Keep elements that pass test
+**Common Methods**: push, pop, map, filter, reduce are essential array methods.
 
 **Iterating**: Use for...of or forEach to loop through arrays.`,
     emoji: '📚',
@@ -493,6 +603,42 @@ fruits[fruits.length - 1]  // Last element
       'Array methods',
       'Iterating over arrays',
     ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Array Basics',
+        code: `// Creating an array
+const fruits = ["apple", "banana", "cherry"];
+
+// Accessing elements (zero-indexed!)
+console.log(fruits[0]);  // "apple"
+console.log(fruits[2]);  // "cherry"
+
+// Array length
+console.log(fruits.length);  // 3
+
+// Adding and removing
+fruits.push("date");      // Add to end
+const last = fruits.pop(); // Remove from end`
+      },
+      {
+        language: 'javascript',
+        title: 'Array Methods',
+        code: `const numbers = [1, 2, 3, 4, 5];
+
+// map - transform each element
+const doubled = numbers.map(n => n * 2);
+// [2, 4, 6, 8, 10]
+
+// filter - keep elements that pass test
+const evens = numbers.filter(n => n % 2 === 0);
+// [2, 4]
+
+// reduce - combine into single value
+const sum = numbers.reduce((a, b) => a + b, 0);
+// 15`
+      }
+    ],
   },
   {
     id: 'objects',
@@ -500,20 +646,13 @@ fruits[fruits.length - 1]  // Last element
     description: 'Complex data structures - grouping related data together.',
     explanation: `Objects store data as key-value pairs. Perfect for representing real-world things.
 
-**Creating Objects**:
-const person = {
-  name: "Alice",
-  age: 30,
-  hobbies: ["reading", "coding"]
-};
+**Creating Objects**: Use curly braces with key: value pairs.
 
-**Accessing Properties**:
-person.name       // "Alice" (dot notation)
-person["age"]     // 30 (bracket notation)
+**Accessing Properties**: Use dot notation or bracket notation.
 
 **Methods**: Functions inside objects.
 
-**Destructuring**: const { name, age } = person;
+**Destructuring**: Extract properties into variables.
 
 **Nested Objects**: Objects can contain other objects for complex data.`,
     emoji: '🗃️',
@@ -527,6 +666,45 @@ person["age"]     // 30 (bracket notation)
       'Methods',
       'Object destructuring',
     ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Object Basics',
+        code: `const person = {
+  name: "Alice",
+  age: 30,
+  hobbies: ["reading", "coding"],
+  greet() {
+    return "Hi, I'm " + this.name;
+  }
+};
+
+// Accessing properties
+console.log(person.name);     // "Alice"
+console.log(person["age"]);   // 30
+
+// Calling methods
+console.log(person.greet());  // "Hi, I'm Alice"`
+      },
+      {
+        language: 'javascript',
+        title: 'Destructuring',
+        code: `const person = { name: "Alice", age: 30, city: "NYC" };
+
+// Destructuring assignment
+const { name, age } = person;
+console.log(name);  // "Alice"
+console.log(age);   // 30
+
+// With renaming
+const { name: userName } = person;
+console.log(userName);  // "Alice"
+
+// Spread operator
+const updated = { ...person, age: 31 };
+// { name: "Alice", age: 31, city: "NYC" }`
+      }
+    ],
   },
   {
     id: 'recursion',
@@ -534,17 +712,11 @@ person["age"]     // 30 (bracket notation)
     description: 'Functions calling themselves - elegant problem solving.',
     explanation: `Recursion is when a function calls itself. It's powerful for problems that can be broken into smaller versions of the same problem.
 
-**The Classic Example - Factorial**:
-function factorial(n) {
-  if (n <= 1) return 1;        // Base case
-  return n * factorial(n - 1); // Recursive case
-}
-
 **Two Essential Parts**:
 1. **Base Case**: When to stop (prevents infinite recursion)
 2. **Recursive Case**: The function calling itself with a smaller problem
 
-**Classic Recursive Problems**: Fibonacci, tree traversal, divide and conquer.
+**Classic Recursive Problems**: Factorial, Fibonacci, tree traversal, divide and conquer.
 
 **Warning**: Always have a base case! Without it, you get infinite recursion and a stack overflow.`,
     emoji: '🪞',
@@ -557,6 +729,37 @@ function factorial(n) {
       'Recursive case',
       'Call stack',
       'Recursion vs iteration',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Factorial',
+        code: `function factorial(n) {
+  // Base case: stop when n is 1 or less
+  if (n <= 1) return 1;
+  
+  // Recursive case: n! = n × (n-1)!
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5));  // 120
+// 5! = 5 × 4 × 3 × 2 × 1 = 120`
+      },
+      {
+        language: 'javascript',
+        title: 'Fibonacci',
+        code: `function fibonacci(n) {
+  // Base cases
+  if (n <= 0) return 0;
+  if (n === 1) return 1;
+  
+  // Recursive case: fib(n) = fib(n-1) + fib(n-2)
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21...
+console.log(fibonacci(7));  // 13`
+      }
     ],
   },
   {
@@ -575,8 +778,6 @@ function factorial(n) {
 
 **Sorting**: Bubble sort O(n²), Merge sort O(n log n)
 
-**Algorithm Design**: Brute Force, Divide and Conquer, Greedy, Dynamic Programming.
-
 **Why Algorithms Matter**: The difference between O(n) and O(n²) can mean seconds vs hours.`,
     emoji: '🧮',
     category: 'programming',
@@ -588,6 +789,846 @@ function factorial(n) {
       'Time complexity (Big O)',
       'Space complexity',
       'Common algorithms',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Binary Search - O(log n)',
+        code: `function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+  
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    
+    if (arr[mid] === target) return mid;
+    if (arr[mid] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+  
+  return -1;  // Not found
+}
+
+const sorted = [1, 3, 5, 7, 9, 11, 13];
+console.log(binarySearch(sorted, 7));  // 3`
+      },
+      {
+        language: 'javascript',
+        title: 'Merge Sort - O(n log n)',
+        code: `function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+  
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  const result = [];
+  while (left.length && right.length) {
+    result.push(left[0] < right[0] ? left.shift() : right.shift());
+  }
+  return [...result, ...left, ...right];
+}`
+      }
+    ],
+  },
+
+  // Data Structures
+  {
+    id: 'linked-lists',
+    title: 'Linked Lists',
+    description: 'A chain of nodes - dynamic data storage.',
+    explanation: `A linked list is a linear data structure where elements are stored in nodes, and each node points to the next one.
+
+**Node Structure**: Each node contains data and a reference (pointer) to the next node.
+
+**Types**:
+- **Singly Linked**: Each node points to the next
+- **Doubly Linked**: Each node points to both next and previous
+
+**Advantages**: Dynamic size, efficient insertions/deletions at any position.
+
+**Disadvantages**: No random access (must traverse from head), extra memory for pointers.`,
+    emoji: '🔗',
+    category: 'programming',
+    difficulty: 'intermediate',
+    prerequisites: ['objects', 'arrays'],
+    estimatedTime: '30 min',
+    keyPoints: [
+      'Node structure',
+      'Head and tail pointers',
+      'Insertion and deletion',
+      'Traversal',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Linked List Implementation',
+        code: `class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  append(value) {
+    const node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+    }
+    this.size++;
+  }
+}`
+      }
+    ],
+  },
+  {
+    id: 'stacks',
+    title: 'Stacks',
+    description: 'Last In, First Out - like a stack of plates.',
+    explanation: `A stack is a LIFO (Last In, First Out) data structure. The last element added is the first one removed.
+
+**Core Operations**:
+- **push**: Add element to top
+- **pop**: Remove element from top
+- **peek**: Look at top without removing
+
+**Real-World Examples**: Undo functionality, browser back button, function call stack.
+
+**Time Complexity**: All operations are O(1)!`,
+    emoji: '📥',
+    category: 'programming',
+    difficulty: 'intermediate',
+    prerequisites: ['arrays'],
+    estimatedTime: '20 min',
+    keyPoints: [
+      'LIFO principle',
+      'Push and pop operations',
+      'Call stack in programming',
+      'Undo/redo functionality',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Stack with Array',
+        code: `class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  push(element) {
+    this.items.push(element);
+  }
+
+  pop() {
+    if (this.isEmpty()) return null;
+    return this.items.pop();
+  }
+
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.pop());  // 3 (last in, first out)`
+      }
+    ],
+  },
+  {
+    id: 'queues',
+    title: 'Queues',
+    description: 'First In, First Out - like a line at a store.',
+    explanation: `A queue is a FIFO (First In, First Out) data structure. The first element added is the first one removed.
+
+**Core Operations**:
+- **enqueue**: Add element to back
+- **dequeue**: Remove element from front
+- **front**: Look at front without removing
+
+**Real-World Examples**: Print queue, task scheduling, message queues.
+
+**Variants**: Priority queue, circular queue, double-ended queue (deque).`,
+    emoji: '📤',
+    category: 'programming',
+    difficulty: 'intermediate',
+    prerequisites: ['arrays'],
+    estimatedTime: '20 min',
+    keyPoints: [
+      'FIFO principle',
+      'Enqueue and dequeue',
+      'Task scheduling',
+      'BFS traversal uses queues',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Queue Implementation',
+        code: `class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    if (this.isEmpty()) return null;
+    return this.items.shift();
+  }
+
+  front() {
+    return this.items[0];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+
+const queue = new Queue();
+queue.enqueue("A");
+queue.enqueue("B");
+queue.enqueue("C");
+console.log(queue.dequeue());  // "A" (first in, first out)`
+      }
+    ],
+  },
+  {
+    id: 'hash-tables',
+    title: 'Hash Tables',
+    description: 'Key-value lookup in O(1) - the power of hashing.',
+    explanation: `A hash table (hash map) stores key-value pairs with near-instant lookup using a hash function.
+
+**How It Works**:
+1. Hash function converts key to array index
+2. Value is stored at that index
+3. Lookup: hash the key, go directly to index
+
+**Collision Handling**: When two keys hash to same index.
+- **Chaining**: Store multiple items at same index (linked list)
+- **Open Addressing**: Find next empty slot
+
+**Time Complexity**: Average O(1) for insert, delete, lookup!`,
+    emoji: '#️⃣',
+    category: 'programming',
+    difficulty: 'advanced',
+    prerequisites: ['arrays', 'functions-prog'],
+    estimatedTime: '30 min',
+    keyPoints: [
+      'Hash function',
+      'Key-value pairs',
+      'Collision handling',
+      'O(1) average lookup',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Using JavaScript Map',
+        code: `// JavaScript has built-in Map
+const users = new Map();
+
+// Set key-value pairs
+users.set("alice", { age: 25, email: "alice@example.com" });
+users.set("bob", { age: 30, email: "bob@example.com" });
+
+// Get value by key - O(1)!
+console.log(users.get("alice"));  // { age: 25, ... }
+
+// Check if key exists
+console.log(users.has("charlie"));  // false
+
+// Delete
+users.delete("bob");`
+      },
+      {
+        language: 'javascript',
+        title: 'Simple Hash Table',
+        code: `class HashTable {
+  constructor(size = 53) {
+    this.table = new Array(size);
+  }
+
+  hash(key) {
+    let total = 0;
+    for (let char of key) {
+      total = (total + char.charCodeAt(0)) % this.table.length;
+    }
+    return total;
+  }
+
+  set(key, value) {
+    const index = this.hash(key);
+    this.table[index] = value;
+  }
+
+  get(key) {
+    return this.table[this.hash(key)];
+  }
+}`
+      }
+    ],
+  },
+  {
+    id: 'trees',
+    title: 'Trees',
+    description: 'Hierarchical data structures - branches of data.',
+    explanation: `A tree is a hierarchical data structure with nodes connected by edges, starting from a root node.
+
+**Terminology**:
+- **Root**: Top node (no parent)
+- **Children**: Nodes below a parent
+- **Leaf**: Node with no children
+- **Depth/Height**: Levels in the tree
+
+**Binary Tree**: Each node has at most 2 children.
+
+**Binary Search Tree (BST)**: Left child < parent < right child.
+
+**Traversals**: Inorder, Preorder, Postorder, Level-order.`,
+    emoji: '🌳',
+    category: 'programming',
+    difficulty: 'advanced',
+    prerequisites: ['recursion', 'objects'],
+    estimatedTime: '40 min',
+    keyPoints: [
+      'Root, nodes, leaves',
+      'Binary search trees',
+      'Tree traversals',
+      'Balanced vs unbalanced',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Binary Search Tree',
+        code: `class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BST {
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) {
+    const node = new TreeNode(value);
+    if (!this.root) {
+      this.root = node;
+      return;
+    }
+    this._insertNode(this.root, node);
+  }
+
+  _insertNode(current, node) {
+    if (node.value < current.value) {
+      if (!current.left) current.left = node;
+      else this._insertNode(current.left, node);
+    } else {
+      if (!current.right) current.right = node;
+      else this._insertNode(current.right, node);
+    }
+  }
+}`
+      },
+      {
+        language: 'javascript',
+        title: 'Tree Traversals',
+        code: `// Inorder: Left, Root, Right (sorted order for BST)
+function inorder(node) {
+  if (!node) return;
+  inorder(node.left);
+  console.log(node.value);
+  inorder(node.right);
+}
+
+// Preorder: Root, Left, Right
+function preorder(node) {
+  if (!node) return;
+  console.log(node.value);
+  preorder(node.left);
+  preorder(node.right);
+}
+
+// Postorder: Left, Right, Root
+function postorder(node) {
+  if (!node) return;
+  postorder(node.left);
+  postorder(node.right);
+  console.log(node.value);
+}`
+      }
+    ],
+  },
+  {
+    id: 'graphs',
+    title: 'Graphs',
+    description: 'Networks of connected nodes - modeling relationships.',
+    explanation: `A graph is a collection of nodes (vertices) connected by edges. Graphs model relationships and networks.
+
+**Types**:
+- **Directed**: Edges have direction (A → B)
+- **Undirected**: Edges go both ways
+- **Weighted**: Edges have values (distances, costs)
+
+**Representations**:
+- **Adjacency Matrix**: 2D array of connections
+- **Adjacency List**: Array of neighbors for each node
+
+**Algorithms**: BFS, DFS, Dijkstra, A* are common graph algorithms.`,
+    emoji: '🕸️',
+    category: 'programming',
+    difficulty: 'advanced',
+    prerequisites: ['trees', 'queues'],
+    estimatedTime: '45 min',
+    keyPoints: [
+      'Vertices and edges',
+      'Directed vs undirected',
+      'BFS and DFS traversal',
+      'Shortest path algorithms',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Graph with Adjacency List',
+        code: `class Graph {
+  constructor() {
+    this.adjacencyList = new Map();
+  }
+
+  addVertex(vertex) {
+    if (!this.adjacencyList.has(vertex)) {
+      this.adjacencyList.set(vertex, []);
+    }
+  }
+
+  addEdge(v1, v2) {
+    this.adjacencyList.get(v1).push(v2);
+    this.adjacencyList.get(v2).push(v1);  // Undirected
+  }
+}
+
+const graph = new Graph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addEdge("A", "B");
+graph.addEdge("B", "C");`
+      },
+      {
+        language: 'javascript',
+        title: 'Breadth-First Search',
+        code: `function bfs(graph, start) {
+  const visited = new Set();
+  const queue = [start];
+  const result = [];
+
+  visited.add(start);
+
+  while (queue.length > 0) {
+    const vertex = queue.shift();
+    result.push(vertex);
+
+    for (const neighbor of graph.adjacencyList.get(vertex)) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+      }
+    }
+  }
+
+  return result;
+}`
+      }
+    ],
+  },
+
+  // Advanced Programming Concepts
+  {
+    id: 'closures',
+    title: 'Closures',
+    description: 'Functions that remember their environment.',
+    explanation: `A closure is a function that has access to variables from its outer (enclosing) scope, even after the outer function has returned.
+
+**How It Works**: When a function is created, it captures references to variables in its surrounding scope.
+
+**Use Cases**:
+- Data privacy (private variables)
+- Function factories
+- Callbacks and event handlers
+- Memoization
+
+**Memory**: Closures keep references alive, so be careful with memory usage.`,
+    emoji: '📦',
+    category: 'programming',
+    difficulty: 'advanced',
+    prerequisites: ['functions-prog'],
+    estimatedTime: '25 min',
+    keyPoints: [
+      'Lexical scope',
+      'Function factories',
+      'Private variables',
+      'Memory considerations',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Counter with Private State',
+        code: `function createCounter() {
+  let count = 0;  // Private variable
+  
+  return {
+    increment() { return ++count; },
+    decrement() { return --count; },
+    getCount() { return count; }
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment());  // 1
+console.log(counter.increment());  // 2
+console.log(counter.getCount());   // 2
+// count variable is not accessible directly!`
+      },
+      {
+        language: 'javascript',
+        title: 'Function Factory',
+        code: `function multiplyBy(factor) {
+  // factor is "closed over"
+  return function(number) {
+    return number * factor;
+  };
+}
+
+const double = multiplyBy(2);
+const triple = multiplyBy(3);
+
+console.log(double(5));  // 10
+console.log(triple(5));  // 15`
+      }
+    ],
+  },
+  {
+    id: 'promises',
+    title: 'Promises',
+    description: 'Handling asynchronous operations elegantly.',
+    explanation: `A Promise represents a value that may not be available yet but will be resolved at some point in the future.
+
+**States**:
+- **Pending**: Initial state, operation in progress
+- **Fulfilled**: Operation completed successfully
+- **Rejected**: Operation failed
+
+**Methods**:
+- **then()**: Handle successful result
+- **catch()**: Handle errors
+- **finally()**: Run code regardless of outcome
+
+**Why Promises**: Better than callbacks for async code, avoids "callback hell".`,
+    emoji: '🤝',
+    category: 'programming',
+    difficulty: 'advanced',
+    prerequisites: ['functions-prog', 'objects'],
+    estimatedTime: '30 min',
+    keyPoints: [
+      'Pending, fulfilled, rejected states',
+      'then, catch, finally',
+      'Promise chaining',
+      'Error handling',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Creating and Using Promises',
+        code: `// Creating a promise
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = true;
+      if (success) {
+        resolve({ id: 1, name: "Alice" });
+      } else {
+        reject(new Error("Failed to fetch"));
+      }
+    }, 1000);
+  });
+};
+
+// Using the promise
+fetchData()
+  .then(data => console.log(data))
+  .catch(err => console.error(err))
+  .finally(() => console.log("Done!"));`
+      },
+      {
+        language: 'javascript',
+        title: 'Promise Chaining',
+        code: `fetch("/api/user/1")
+  .then(response => response.json())
+  .then(user => fetch("/api/posts/" + user.id))
+  .then(response => response.json())
+  .then(posts => console.log(posts))
+  .catch(error => console.error("Error:", error));
+
+// Promise.all - wait for multiple promises
+Promise.all([
+  fetch("/api/users"),
+  fetch("/api/posts")
+])
+.then(([users, posts]) => {
+  console.log("All data loaded!");
+});`
+      }
+    ],
+  },
+  {
+    id: 'async-await',
+    title: 'Async/Await',
+    description: 'Promises with cleaner syntax.',
+    explanation: `Async/await is syntactic sugar over Promises that makes asynchronous code look and behave like synchronous code.
+
+**async function**: Declares a function that returns a Promise.
+
+**await**: Pauses execution until the Promise resolves.
+
+**Error Handling**: Use try/catch blocks.
+
+**Benefits**: Cleaner code, easier debugging, better error stacks.`,
+    emoji: '⏳',
+    category: 'programming',
+    difficulty: 'advanced',
+    prerequisites: ['promises'],
+    estimatedTime: '20 min',
+    keyPoints: [
+      'async function declaration',
+      'await keyword',
+      'try/catch for errors',
+      'Parallel execution',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Async/Await Basics',
+        code: `async function fetchUser(id) {
+  try {
+    const response = await fetch("/api/users/" + id);
+    const user = await response.json();
+    return user;
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+    throw error;
+  }
+}
+
+// Using the async function
+async function main() {
+  const user = await fetchUser(1);
+  console.log(user.name);
+}
+
+main();`
+      },
+      {
+        language: 'javascript',
+        title: 'Parallel Async Operations',
+        code: `async function loadDashboard() {
+  // Sequential - slow!
+  // const users = await fetchUsers();
+  // const posts = await fetchPosts();
+
+  // Parallel - fast!
+  const [users, posts] = await Promise.all([
+    fetchUsers(),
+    fetchPosts()
+  ]);
+
+  return { users, posts };
+}
+
+// With error handling
+async function safeFetch(url) {
+  try {
+    const res = await fetch(url);
+    return await res.json();
+  } catch {
+    return null;
+  }
+}`
+      }
+    ],
+  },
+  {
+    id: 'classes',
+    title: 'Classes',
+    description: 'Blueprints for creating objects.',
+    explanation: `Classes are blueprints for creating objects with shared properties and methods. They provide a cleaner syntax for object-oriented programming.
+
+**Constructor**: Special method called when creating an instance.
+
+**Methods**: Functions defined inside the class.
+
+**Inheritance**: Classes can extend other classes.
+
+**Static Members**: Properties/methods on the class itself, not instances.`,
+    emoji: '🏗️',
+    category: 'programming',
+    difficulty: 'intermediate',
+    prerequisites: ['objects', 'functions-prog'],
+    estimatedTime: '25 min',
+    keyPoints: [
+      'Constructor method',
+      'Instance methods',
+      'Inheritance with extends',
+      'Static methods',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Class Basics',
+        code: `class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(this.name + " makes a sound");
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name);  // Call parent constructor
+    this.breed = breed;
+  }
+
+  speak() {
+    console.log(this.name + " barks!");
+  }
+}
+
+const dog = new Dog("Rex", "German Shepherd");
+dog.speak();  // "Rex barks!"`
+      },
+      {
+        language: 'python',
+        title: 'Classes in Python',
+        code: `class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        print(f"{self.name} makes a sound")
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+    
+    def speak(self):
+        print(f"{self.name} barks!")
+
+dog = Dog("Rex", "German Shepherd")
+dog.speak()  # "Rex barks!"`
+      }
+    ],
+  },
+  {
+    id: 'higher-order-functions',
+    title: 'Higher-Order Functions',
+    description: 'Functions that work with other functions.',
+    explanation: `A higher-order function is a function that takes other functions as arguments or returns a function.
+
+**Examples in JavaScript**: map, filter, reduce, forEach, sort.
+
+**Benefits**:
+- More declarative code
+- Reusability
+- Composition
+- Abstraction
+
+**Functional Programming**: Higher-order functions are a cornerstone of functional programming.`,
+    emoji: '🎢',
+    category: 'programming',
+    difficulty: 'intermediate',
+    prerequisites: ['functions-prog', 'arrays'],
+    estimatedTime: '25 min',
+    keyPoints: [
+      'Functions as arguments',
+      'Returning functions',
+      'map, filter, reduce',
+      'Function composition',
+    ],
+    codeExamples: [
+      {
+        language: 'javascript',
+        title: 'Common Higher-Order Functions',
+        code: `const numbers = [1, 2, 3, 4, 5];
+
+// map: transform each element
+const squared = numbers.map(n => n * n);
+// [1, 4, 9, 16, 25]
+
+// filter: keep matching elements
+const evens = numbers.filter(n => n % 2 === 0);
+// [2, 4]
+
+// reduce: combine into single value
+const sum = numbers.reduce((acc, n) => acc + n, 0);
+// 15
+
+// Chain them together!
+const sumOfEvenSquares = numbers
+  .filter(n => n % 2 === 0)
+  .map(n => n * n)
+  .reduce((acc, n) => acc + n, 0);
+// 20 (4 + 16)`
+      },
+      {
+        language: 'javascript',
+        title: 'Creating Higher-Order Functions',
+        code: `// Function that returns a function
+function withLogging(fn) {
+  return function(...args) {
+    console.log("Calling with:", args);
+    const result = fn(...args);
+    console.log("Result:", result);
+    return result;
+  };
+}
+
+const add = (a, b) => a + b;
+const loggedAdd = withLogging(add);
+
+loggedAdd(2, 3);
+// Calling with: [2, 3]
+// Result: 5`
+      }
     ],
   },
 

@@ -1,3 +1,9 @@
+export interface CodeExample {
+  language: 'javascript' | 'typescript' | 'python' | 'java' | 'cpp' | 'rust' | 'go' | 'pseudo';
+  title: string;
+  code: string;
+}
+
 export interface Concept {
   id: string;
   title: string;
@@ -9,6 +15,7 @@ export interface Concept {
   prerequisites: string[];
   estimatedTime: string;
   keyPoints: string[];
+  codeExamples?: CodeExample[];
 }
 
 export type Category = 

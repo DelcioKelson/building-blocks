@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock, BookOpen, Code } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock, BookOpen, Code, Sparkles } from 'lucide-react';
 import type { Concept } from '../types/concept';
 import { categoryColors } from '../types/concept';
 import { useProgressStore } from '../store/progressStore';
-import { getMissingPrerequisites } from '../data/concepts';
+import { getMissingPrerequisites, getDependents } from '../data/concepts';
 import LearningPathGraph from './LearningPathGraph';
 import CodeBlock from './CodeBlock';
 import LinkedText from './LinkedText';
@@ -22,6 +22,9 @@ export default function ConceptDetail({ concept, onSelectConcept, onBack, onGoTo
   const colors = categoryColors[concept.category];
   const missingPrereqs = getMissingPrerequisites(concept.id, completedConcepts);
   const isLocked = status === 'locked';
+  
+  // Get concepts that depend on this one (what you can learn next)
+  const dependentConcepts = getDependents(concept.id);
 
   return (
     <div className="min-h-screen">
@@ -198,6 +201,45 @@ export default function ConceptDetail({ concept, onSelectConcept, onBack, onGoTo
                 ))}
               </ul>
             </div>
+
+            {/* What You Can Learn Next */}
+            {dependentConcepts.length > 0 && (
+              <div className="mb-8 p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-2xl border border-purple-500/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <Sparkles className="w-5 h-5 text-purple-400" />
+                  <h3 className="text-lg font-semibold text-white">What You Can Learn Next</h3>
+                </div>
+                <p className="text-gray-400 text-sm mb-4">
+                  After mastering this concept, you'll be ready for:
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {dependentConcepts.map((dep: Concept) => {
+                    const depColors = categoryColors[dep.category];
+                    const depStatus = getConceptStatus(dep.id);
+                    
+                    return (
+                      <motion.button
+                        key={dep.id}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => onSelectConcept(dep)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${
+                          depStatus === 'completed' 
+                            ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300'
+                            : depStatus === 'available'
+                            ? `bg-gradient-to-r ${depColors.gradient} border-transparent text-white shadow-lg`
+                            : 'bg-gray-800/50 border-gray-700 text-gray-300 hover:border-gray-600'
+                        }`}
+                      >
+                        <span>{dep.emoji}</span>
+                        <span className="font-medium">{dep.title}</span>
+                        {depStatus === 'completed' && <CheckCircle2 className="w-4 h-4" />}
+                      </motion.button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* Action */}
             {status === 'completed' ? (

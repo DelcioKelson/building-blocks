@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock, BookOpen, Code, Sparkles } from 'lucide-react';
 import type { Concept } from '../types/concept';
@@ -25,6 +26,11 @@ export default function ConceptDetail({ concept, onSelectConcept, onBack, onGoTo
   
   // Get concepts that depend on this one (what you can learn next)
   const dependentConcepts = getDependents(concept.id);
+
+  // Scroll to top when concept changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [concept.id]);
 
   return (
     <div className="min-h-screen">
